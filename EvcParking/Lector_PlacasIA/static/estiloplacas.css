@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #ff8c00; /* Color naranja */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #ffe5b4; /* Suave tono de naranja */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #ffffff; /* Blanco */
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #333; /* Color oscuro */
+}
+
+th {
+    background-color: #ff8c00; /* Naranja */
+    color: white;
+    text-align: center;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #ffcc80; /* Naranja claro para el hover */
+}
+
+footer {
+    background-color: #333; /* Color oscuro */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
