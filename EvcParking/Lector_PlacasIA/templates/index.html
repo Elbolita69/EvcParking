@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura Automática de Placas</title>
+    <!-- Referencia al archivo CSS en la carpeta static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='Stylecamaras.css') }}">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <ul class="nav-list">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenedor de video -->
+    <div class="video-container">
+        <h2>Placas EVC PARKING</h2>
+        <img id="video" class="video-frame" src="{{ url_for('video_feed') }}" alt="Video en vivo">
+        <br><br>
+        <button class="action-btn" onclick="captureImage()">Capturar y Leer Placa</button>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 EVC Parking. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function captureImage() {
+            fetch('/leer_placa', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Placa detectada y guardada: " + data.plate);
+                    } else {
+                        alert("No se detectó ninguna placa.");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
