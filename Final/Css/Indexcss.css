@@ -6,3 +6,13 @@
 .btn-close-white {
     filter: invert(1);
 }
+
+/* Asegura que el footer esté en la parte inferior */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+}
