@@ -1,18 +1,221 @@
-
+/* Personalización del fondo y colores principales */
 .custom-bg {
-    background-color: #E8491D;
+    background-color: #1E2A39; /* Fondo oscuro, para dar un tono moderno */
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C); /* Un degradado moderno de colores cálidos */
+    padding: 120px 0; /* Asegura que el encabezado tenga una altura adecuada */
+    background-size: cover;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Mejora la legibilidad del texto sobre el fondo */
+}
+
+/* Navbar personalizada con espaciado reducido */
+.navbar {
+    background-color: #1E2A39 !important;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Añade transición suave al pasar el mouse */
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 15px; /* Mejora la interacción */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para los enlaces */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #F8A71C;
+    background-color: #2C3E50; /* Fondo oscuro sutil en el hover */
+}
+
+/* Mejorar el aspecto de la lista del offcanvas */
+.offcanvas-header {
+    background-color: #1E2A39;
 }
 
 .btn-close-white {
     filter: invert(1);
 }
 
-/* Asegura que el footer esté en la parte inferior */
+/* Mejorando la accesibilidad y legibilidad */
+h1 {
+    color: white; /* Cambiar el color de "Bienvenido a EVC Parking" a blanco */
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #F8A71C; /* Cambiado el color para ajustarse más al tema de tecnología */
+}
+
+/* Estilo para las características */
+.feature-box {
+    background-color: #F8A71C; /* Fondo naranja para las características */
+    color: #1E2A39;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+}
+
+/* Títulos de las características */
+.feature-box h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Mejorar el aspecto de la lista del offcanvas */
+.offcanvas-body {
+    background-color: #1E2A39;
+}
+
+.offcanvas-body .list-group-item {
+    background-color: #2C3E50;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.offcanvas-body .list-group-item:hover {
+    background-color: #F8A71C; /* Color vibrante para el hover */
+}
+
+/* Botón para el menú offcanvas */
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+    font-size: 1.25rem;
+    padding: 12px 20px;
+    border-radius: 5px; /* Hacemos el botón más cuadrado */
+}
+
+.btn-outline-light:hover {
+    background-color: #F8A71C;
+    border-color: #F8A71C;
+}
+
+/* Estilo de los cuadros en la lista de características */
+.list-group-item {
+    background-color: #f4f5f7;
+    color: #495057;
+    border: 1px solid #ddd;
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto sutil de hover */
+}
+
+.list-group-item:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+/* Estilo del footer */
+.footer {
+    background-color: #1E2A39;
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    opacity: 0.7; /* Hacer que el texto sea un poco más sutil */
+}
+
+.footer small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    .list-group-item {
+        font-size: 1rem;
+    }
+    .navbar .navbar-brand img {
+        height: 35px;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
+
+/* Mejora la apariencia de los botones */
+.btn {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #F8A71C;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #E8491D;
+}
+
+/* Transición suave para los botones */
+.btn:hover {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    transform: translateY(-2px);
+}
+/* Asegura que el footer esté al final de la página */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 main {
     flex: 1;
+}
+
+/* Estilo del footer */
+.footer {
+    background-color: #1E2A39;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* Esto asegura que el footer siempre se mantenga al final */
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    opacity: 0.7; /* Hacer que el texto sea un poco más sutil */
+}
+
+.footer small {
+    font-size: 0.75rem;
+    opacity: 0.8;
 }

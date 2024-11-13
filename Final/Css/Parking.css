@@ -1,17 +1,36 @@
-
-
 .custom-bg {
     background-color: #E8491D;
-}
-
-.parking-spot {
-    width: 80px;
-    height: 80px;
+  }
+  
+  .custom-btn {
+    background: linear-gradient(90deg, #ff6f00, #ff8c1a);
+    color: white;
+  }
+  
+  .custom-btn:hover {
+    background: linear-gradient(90deg, #ff8c1a, #ff6f00);
+    color: white;
+  }
+  
+  .parking-spot {
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.btn-close-white {
-    filter: invert(1);
-}
+    align-items: center;
+    height: 100px;
+    font-size: 18px;
+    border: 2px solid #ff6f00;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .parking-spot.bg-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .parking-spot.bg-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
