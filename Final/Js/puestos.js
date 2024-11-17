@@ -205,16 +205,79 @@ function loadUsers() {
 }
 
 // Eliminar un usuario de estacionamiento
+// Eliminar un usuario de estacionamiento
 function removeUser(spot) {
     const parkedCars = JSON.parse(localStorage.getItem('parkedCars')) || {};
 
     if (parkedCars[spot]) {
         delete parkedCars[spot];
         localStorage.setItem('parkedCars', JSON.stringify(parkedCars));
-        loadUsers();
-        alert(`El lugar ${spot} ha sido liberado.`);
+        showConfirmationModal(spot);
     }
 }
+
+// Mostrar la modal de confirmación
+function showConfirmationModal(spot) {
+    const modal = document.createElement('div');
+    modal.className = 'modal fade show';
+    modal.style.display = 'block';
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('role', 'dialog');
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-dialog modal-dialog-centered';
+
+    const modalInner = document.createElement('div');
+    modalInner.className = 'modal-content rounded-4 shadow-lg';
+
+    const modalHeader = document.createElement('div');
+    modalHeader.className = 'modal-header bg-danger text-white';
+    const modalTitle = document.createElement('h5');
+    modalTitle.className = 'modal-title';
+    modalTitle.textContent = 'Confirmación';
+    const closeButton = document.createElement('button');
+    closeButton.className = 'btn-close text-white';
+    closeButton.onclick = () => modal.remove();
+    modalHeader.appendChild(modalTitle);
+    modalHeader.appendChild(closeButton);
+
+    const modalBody = document.createElement('div');
+    modalBody.className = 'modal-body';
+    modalBody.innerHTML = `<p class="fs-5">El lugar <strong>${spot}</strong> será borrado. ¿Deseas continuar?</p>`;
+
+    const modalFooter = document.createElement('div');
+    modalFooter.className = 'modal-footer';
+
+    const yesButton = document.createElement('button');
+    yesButton.className = 'btn btn-danger px-4';
+    yesButton.textContent = 'Sí, borrar';
+    yesButton.onclick = () => {
+        modal.remove();
+        // Aquí iría el código para borrar el lugar
+        window.location.reload(); // Recargar la página después de la acción
+    };
+
+    const cancelButton = document.createElement('button');
+    cancelButton.className = 'btn btn-secondary px-4';
+    cancelButton.textContent = 'Cancelar';
+    cancelButton.onclick = () => modal.remove();
+
+    modalFooter.appendChild(yesButton);
+    modalFooter.appendChild(cancelButton);
+
+    modalInner.appendChild(modalHeader);
+    modalInner.appendChild(modalBody);
+    modalInner.appendChild(modalFooter);
+
+    modalContent.appendChild(modalInner);
+    modal.appendChild(modalContent);
+
+    document.body.appendChild(modal);
+}
+
+
+
+
 
 // Cargar la lista de estacionamientos disponibles
 function loadParkingSpots() {

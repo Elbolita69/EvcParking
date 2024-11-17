@@ -34,28 +34,38 @@
 
     <!-- Offcanvas -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-        <div class="offcanvas-header bg-custom">
-            <h5 class="offcanvas-title text-white" id="offcanvasWithBothOptionsLabel">Menú de opciones</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-header bg-primary text-white">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Menú de opciones</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <ul class="list-group">
-                <li class="list-group-item"><a href="bot.html" class="text-custom">Chatbot</a></li>
-                <li class="list-group-item"><a href="admin.html" class="text-custom">Admin</a></li>
-            </ul>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="bot.html">Chatbot</a></li>
+          </ul>
         </div>
+      </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-white py-5 custom-bg">
+        <div class="container">
+            <h1>Gestion de puestos</h1>
+            <p class="lead">Gestiona los puestos de una manera fácil</p>
+            <p id="nombreUsuario" class="lead"></p>
+        </div>
+    </header>
+
+    <!-- User and Parking Lists -->
+    <div class="container my-5">
+        <div id="userList" class="mb-4"></div>
+        <div id="estacionamientoList"></div>
     </div>
 
-    <div class="container mt-5">
-        <h1 class="text-center text-custom">Panel de Gestión de puestos</h1>
-        <p class="text-center">Gestiona los usuarios del sistema de EVC Parking</p>
-        <div id="userList" class="mt-4"></div>
-    </div>
-
+    <!-- Footer -->
     <footer class="mt-auto bg-custom text-white text-center py-3">
         <p>&copy; 2024 EVC Parking. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../Js/puestos.js"></script>
     <script src="../Js/CambiarBoton.js"></script>
