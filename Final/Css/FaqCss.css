@@ -1,10 +1,351 @@
+/* Estilos mejorados para el navbar, botones, y offcanvas */
 .bg-custom {
-    background-color: #E8491D !important;
+    background-color: #F8A71C !important; /* Color naranja para el fondo */
 }
+
 .btn-custom {
-    background-color: #E8491D !important;
-    border-color: #E8491D !important;
+    background-color: #F8A71C !important;
+    border-color: #F8A71C !important;
 }
+
 .text-custom {
-    color: #E8491D !important;
+    color: #F8A71C !important;
+}
+
+.navbar {
+    background-color: #F8A71C !important;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #2C3E50;
+    background-color: #F8A71C;
+}
+
+/* Estilo del offcanvas */
+.offcanvas-header {
+    background-color: #F8A71C;
+}
+
+.offcanvas-body {
+    background-color: #fff;
+}
+
+.list-group-item a {
+    color: #F8A71C;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #F8A71C;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Mejoras en el botón */
+.btn-outline-light {
+    border-color: #F8A71C;
+    color: #F8A71C;
+}
+
+.btn-outline-light:hover {
+    background-color: #F8A71C;
+    color: white;
+}
+
+/* Diseño más limpio y moderno */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #F8A71C;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    .hero-section {
+        padding: 80px 0;
+    }
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C); /* Un degradado moderno de colores cálidos */
+    padding: 120px 0; /* Asegura que el encabezado tenga una altura adecuada */
+    background-size: cover;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Mejora la legibilidad del texto sobre el fondo */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: #F8A71C;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Estilo personalizado para el offcanvas */
+.offcanvas-visible {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: white;
+    border-radius: 0 20px 20px 0; /* Bordes redondeados en la derecha */
+    z-index: 1040; /* Asegura que esté encima de otros elementos */
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-offcanvas {
+    border-radius: 0 25px 25px 0;
+}
+
+.list-group-item {
+    border: none;
+    margin-bottom: 10px;
+}
+
+.text-custom {
+    color: #E8491D;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.text-custom:hover {
+    color: #2C3E50;
+    text-decoration: underline;
+}
+
+body {
+    margin-left: 260px; /* Ajusta el espacio según el ancho del offcanvas */
+}
+.custom-bg {
+    background-color: #E8491D;
+}
+
+.custom-btn {
+    background: linear-gradient(90deg, #ff6f00, #ff8c1a);
+    color: white;
+}
+
+.custom-btn:hover {
+    background: linear-gradient(90deg, #ff8c1a, #ff6f00);
+    color: white;
+}
+
+.parking-spot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 18px;
+    border: 2px solid #ff6f00;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.parking-spot.bg-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.parking-spot.bg-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Personalización del fondo y colores principales */
+.custom-bg {
+    background-color: #1E2A39; /* Fondo oscuro, para dar un tono moderno */
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C); /* Un degradado moderno de colores cálidos */
+    padding: 120px 0; /* Asegura que el encabezado tenga una altura adecuada */
+    background-size: cover;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Mejora la legibilidad del texto sobre el fondo */
+}
+
+/* Navbar personalizada con espaciado reducido */
+.navbar {
+    background-color: #F8A71C !important; /* Color naranja para el navbar */
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Añade transición suave al pasar el mouse */
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 15px; /* Mejora la interacción */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para los enlaces */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #2C3E50;
+    background-color: #F8A71C; /* Fondo naranja en el hover */
+}
+
+/* Mejorar el aspecto de la lista del offcanvas */
+.offcanvas-header {
+    background-color: #F8A71C; /* Fondo naranja en el offcanvas */
+}
+
+.btn-close-white {
+    filter: invert(1);
+}
+
+/* Mejora la presentación del encabezado */
+h1 {
+    color: white; /* Cambiar el color del encabezado a blanco */
+    font-size: 3.5rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #F8A71C; /* Mantener el color naranja para el subtítulo */
+    text-align: center;
+}
+
+/* Mejorar la presentación de los botones */
+.btn {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #F8A71C;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #E8491D;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
+
+/* Estilo del footer */
+.footer {
+    background-color: #1E2A39;
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    opacity: 0.7; /* Hacer que el texto sea un poco más sutil */
+}
+
+.footer small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 50px; /* Añade un espacio al fondo */
+}
+
+
+footer {
+    margin-top: auto;
+}
+/* Asegura que el formulario tenga espacio desde el footer */
+body {
+    margin-bottom: 100px; /* Ajusta este valor según sea necesario */
+}
+
+/* Para centrar el formulario */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilo del botón */
+.btn-custom {
+    background-color: #E8491D;
+    border-color: #E8491D;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #C74417;
+    border-color: #C74417;
 }

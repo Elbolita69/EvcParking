@@ -31,11 +31,11 @@
         </div>
     </nav>
 
-    <div class="container text-center mt-5">
-        <h2>Cámara de Entrada</h2>
-        <div class="mb-4">
-            <img class="img-fluid" src="http://localhost:5000/video_feed" alt="Cámara en Tiempo Real">
-        </div>
+    <div class="video-container">
+        <h2>Placas EVC PARKING</h2>
+        <img id="video" class="video-frame" src="{{ url_for('video_feed') }}" alt="Video en vivo">
+        <br><br>
+        <button class="action-btn" onclick="captureImage()">Capturar y Leer Placa</button>
     </div>
 
    
