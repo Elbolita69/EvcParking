@@ -1,0 +1,84 @@
+/* Estilos para el Navbar */
+.navbar {
+    background-color: #F8A71C !important; /* Naranja para el navbar */
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 15px; /* Mejora la interacción */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para los enlaces */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #2C3E50;
+    background-color: #F8A71C; /* Fondo naranja en el hover */
+}
+
+/* Hero */
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C); /* Un degradado cálido */
+    color: white;
+    padding: 100px 0; /* Altura del hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Sombras para la legibilidad */
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Estilos de la Tabla */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+thead {
+    background-color: #E8491D;
+    color: white;
+    text-transform: uppercase;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #F8A71C; /* Color oscuro para el footer */
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #F8A71C;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+}
+/* Agregar estilos adicionales si es necesario */
+#exportXLSX, #exportPDF {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
