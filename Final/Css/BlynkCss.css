@@ -1,0 +1,226 @@
+/* Personalización de fondo y colores principales */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos para el Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C);
+    padding: 60px 0; /* Reducir el padding para hacer el Hero más pequeño */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo del encabezado y subtítulo */
+h1 {
+    color: white;
+    font-size: 2.5rem; /* Reducir tamaño del texto */
+    font-weight: 700;
+    margin-bottom: 15px; /* Menos espacio debajo del título */
+}
+
+h2 {
+    color: #F8A71C;
+    font-size: 1.3rem; /* Reducir tamaño del subtítulo */
+    font-weight: 600;
+}
+
+/* Navbar (más delgado y pequeño) */
+/* Navbar personalizada con espaciado reducido */
+.navbar {
+    background-color: #F8A71C !important; /* Color naranja para el navbar */
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Añade transición suave al pasar el mouse */
+  }
+  
+  .navbar .navbar-brand img {
+    height: 40px;
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 15px; /* Mejora la interacción */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para los enlaces */
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #2C3E50;
+    background-color: #F8A71C; /* Fondo naranja en el hover */
+  }
+  
+
+/* Card Container */
+.sensor-card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    background-color: #ffffff;
+    border: 2px solid #E8491D; /* Borde más estilizado */
+    padding: 15px;
+}
+
+.sensor-card:hover {
+    transform: scale(1.05);
+}
+
+.card-header {
+    background-color: #F8A71C; /* Color naranja similar al tema */
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.available {
+    color: #28a745; /* Verde para Disponible */
+    font-weight: bold;
+}
+
+.occupied {
+    color: #dc3545; /* Rojo para Ocupado */
+    font-weight: bold;
+}
+
+.counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F8A71C; /* Cambio del azul a naranja */
+}
+
+/* Mejorar presentación de los botones */
+.btn {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #F8A71C;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #E8491D;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0; /* Menor padding en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .sensor-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Ajuste de espacio entre las tarjetas */
+.container {
+    margin-bottom: 60px;  /* Aumenté el espacio para evitar que las tarjetas toquen el borde inferior */
+}
+
+.row-cols-1, .row-cols-md-2, .row-cols-lg-4 {
+    margin-bottom: 30px; /* Espacio extra entre las tarjetas */
+}
+
+/* Estilos generales */
+body {
+    background-color: #f8f9fa;
+}
+
+.sensor-card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.sensor-card:hover {
+    transform: scale(1.05);
+}
+
+.card-header {
+    background-color: #F8A71C; /* Color naranja similar al tema */
+    color: white;
+}
+
+.available {
+    color: #28a745; /* Verde para Disponible */
+    font-weight: bold;
+}
+
+.occupied {
+    color: #dc3545; /* Rojo para Ocupado */
+    font-weight: bold;
+}
+
+.counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F8A71C; /* Cambio del azul a naranja */
+}
+
+/* Estilo para el texto adicional */
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Cambios de color para la tabla */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #E8491D; /* Borde acorde al tema */
+}
+
+.card-body {
+    background-color: #f8f9fa;
+}
+
+.card-header {
+    background-color: #E8491D; /* Naranja de la compañía */
+}
+
+/* Personalización adicional */
+body {
+    background-color: #f8f9fa;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Para mejorar la visualización del contenedor */
+.container {
+    margin-top: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Adaptación en pantallas pequeñas */
+@media (max-width: 768px) {
+    .counter {
+        font-size: 1.5rem;
+    }
+
+    .card-header {
+        font-size: 1rem;
+    }
+}
