@@ -106,9 +106,12 @@ document.getElementById('confirmReservation').addEventListener('click', function
     // Guardar la información del usuario en el localStorage
     parkedCars[selectedSpot] = formData;
     localStorage.setItem('parkedCars', JSON.stringify(parkedCars));
-    updateParkingLot();
+    updateParkingLot(); // Actualiza el estado visual de los puestos
     selectedSpot = null;
     formData = {}; // Reiniciar los datos del formulario
+
+    // Actualizar la gráfica después de la reserva
+    updateParkingChart(); // Esto actualizará la gráfica circular
 
     // Cerrar la modal automáticamente después de confirmar
     const modalInstance = bootstrap.Modal.getInstance(document.getElementById('parkingSpotInfoModal'));
@@ -116,7 +119,9 @@ document.getElementById('confirmReservation').addEventListener('click', function
   }
 });
 
+
 // Actualizar el estacionamiento cuando el contenido de la página se cargue
 document.addEventListener("DOMContentLoaded", function () {
   updateParkingLot();
 });
+
