@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID "TMPL2LMzODt-r"
-#define BLYNK_TEMPLATE_NAME "EVC PARKING"
-#define BLYNK_AUTH_TOKEN "s41iSHhmLQ124aj9xeBmW706kgJC3ILo"
+#define BLYNK_TEMPLATE_ID "TMPL2c8_iyjf0"
+#define BLYNK_TEMPLATE_NAME "PARKING"
+#define BLYNK_AUTH_TOKEN "GpHkupCqIt3PC1-JX5ynFQi6BnfgqbAO"
 
 #include <Wire.h>
 #include <WiFiClient.h>
