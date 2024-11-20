@@ -16,25 +16,32 @@ async function getSensorData() {
             const statusElement = document.getElementById(`sensor${i + 1}`);
             const buttonElement = document.getElementById(`reserveButton${i + 1}`);
             const cancelButtonElement = document.getElementById(`cancelButton${i + 1}`);
+            const reservedInfoElement = document.getElementById(`reservedInfo${i + 1}`);
 
             // Verifica que los elementos existan antes de intentar modificarlos
-            if (statusElement && buttonElement && cancelButtonElement) {
+            if (statusElement && buttonElement && cancelButtonElement && reservedInfoElement) {
                 if (reservedSpaces[sensors[i]]) {
                     statusElement.innerText = "Reservado";
                     statusElement.className = "reserved";
                     buttonElement.disabled = true;
                     cancelButtonElement.style.display = "inline-block";
+                    reservedInfoElement.innerHTML = `
+                        <strong>Nombre:</strong> ${reservedSpaces[sensors[i]].name}<br>
+                        <strong>Placa:</strong> ${reservedSpaces[sensors[i]].plate}
+                    `;
                 } else if (data[sensors[i]] === "1") {
                     statusElement.innerText = "Disponible";
                     statusElement.className = "available";
                     buttonElement.disabled = false;
                     cancelButtonElement.style.display = "none";
+                    reservedInfoElement.innerHTML = '';
                     availableSpaces++;
                 } else {
                     statusElement.innerText = "Ocupado";
                     statusElement.className = "occupied";
                     buttonElement.disabled = true;
                     cancelButtonElement.style.display = "none";
+                    reservedInfoElement.innerHTML = '';
                 }
             }
         }
@@ -127,6 +134,7 @@ const renderSpaces = () => {
                         <div class="card-header text-center">Espacio ${index + 1}</div>
                         <div class="card-body text-center">
                             <p id="sensor${index + 1}" class="available">Disponible</p>
+                            <p id="reservedInfo${index + 1}"></p>
                             <button id="reserveButton${index + 1}" class="btn btn-primary mt-2" onclick="openReservationForm(${index})">Reservar</button>
                             <button id="cancelButton${index + 1}" class="btn btn-danger mt-2" style="display: none;" onclick="cancelReservation(${index})">Cancelar Reserva</button>
                         </div>
