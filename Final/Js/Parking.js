@@ -1,7 +1,8 @@
-const authToken = "GpHkupCqIt3PC1-JX5ynFQi6BnfgqbAO";
+const authToken = "igJkzHvuKQ9nlkp6ncgfnZ0ntiUcYWFq";
 let sensors = ["V0", "V1", "V2", "V3"];
 let reservedSpaces = JSON.parse(localStorage.getItem("reservedSpaces")) || {};
 let availableSpaces = 0;
+let reservationHistory = JSON.parse(localStorage.getItem("reservationHistory")) || [];
 
 async function getSensorData() {
     const data = {};
@@ -18,7 +19,6 @@ async function getSensorData() {
             const cancelButtonElement = document.getElementById(`cancelButton${i + 1}`);
             const reservedInfoElement = document.getElementById(`reservedInfo${i + 1}`);
 
-            // Verifica que los elementos existan antes de intentar modificarlos
             if (statusElement && buttonElement && cancelButtonElement && reservedInfoElement) {
                 if (reservedSpaces[sensors[i]]) {
                     statusElement.innerText = "Reservado";
@@ -60,7 +60,7 @@ function openReservationForm(sensorIndex) {
     const sensorToReserve = document.getElementById('sensorToReserve');
     if (reserveForm && sensorToReserve) {
         reserveForm.reset();
-        sensorToReserve.value = sensorIndex;  // Asignamos el índice del sensor
+        sensorToReserve.value = sensorIndex;
         const modal = new bootstrap.Modal(document.getElementById('reservationModal'));
         modal.show();
     }
@@ -68,14 +68,11 @@ function openReservationForm(sensorIndex) {
 
 async function reserveSpace() {
     const sensorIndex = document.getElementById('sensorToReserve').value;
-
-    // Verificamos que sensorIndex no sea nulo o indefinido
     if (sensorIndex === null || sensorIndex === undefined) {
         alert("Hubo un error al intentar obtener el sensor.");
         return;
     }
 
-    // Verificamos que el índice sea válido (no fuera del rango de los sensores)
     const sensorKey = sensors[sensorIndex];
     if (!sensorKey) {
         alert("Sensor no encontrado.");
@@ -90,8 +87,12 @@ async function reserveSpace() {
         return;
     }
 
-    reservedSpaces[sensorKey] = { name, plate };
+    // Guardar en reservedSpaces
+    reservedSpaces[sensorKey] = { name, plate, status: 'reservado' };
     localStorage.setItem("reservedSpaces", JSON.stringify(reservedSpaces));
+
+    // Guardar en el historial de reservas
+    saveReservationHistory(sensorKey, name, plate, 'Reservado');
 
     try {
         const response = await fetch(`https://blynk.cloud/external/api/update?token=${authToken}&pin=${sensorKey}&value=0`);
@@ -110,19 +111,82 @@ async function cancelReservation(sensorIndex) {
     const sensorKey = sensors[sensorIndex];
 
     if (confirm(`¿Deseas cancelar la reserva del espacio ${sensorIndex + 1}?`)) {
-        delete reservedSpaces[sensorKey];
-        localStorage.setItem("reservedSpaces", JSON.stringify(reservedSpaces));
+        if (reservedSpaces[sensorKey]) {
+            // Guardar en el historial de reservas como "Cancelado"
+            const { name, plate } = reservedSpaces[sensorKey];
+            saveReservationHistory(sensorKey, name, plate, 'Cancelado');
+
+            // Eliminar la reserva en el almacenamiento local
+            delete reservedSpaces[sensorKey];
+            localStorage.setItem("reservedSpaces", JSON.stringify(reservedSpaces));
+        }
+
+        // Resetear el espacio a "disponible" en la API de Blynk
         try {
             await fetch(`https://blynk.cloud/external/api/update?token=${authToken}&pin=${sensorKey}&value=1`);
+            console.log(`Reserva cancelada en el sensor ${sensorIndex + 1}`);
         } catch (error) {
             console.error('Error al cancelar la reserva:', error);
         }
-        getSensorData();
+
+        getSensorData(); // Actualizar la interfaz
     }
+}
+
+function saveReservationHistory(sensorKey, name, plate, status) {
+    const historyEntry = {
+        sensor: sensorKey,
+        name: name,
+        plate: plate,
+        status: status,
+        timestamp: new Date().toISOString()
+    };
+    reservationHistory.push(historyEntry);
+    localStorage.setItem("reservationHistory", JSON.stringify(reservationHistory));
+}
+
+function renderHistory() {
+    const historyContainer = document.getElementById('historyContainer');
+    if (historyContainer) {
+        historyContainer.innerHTML = '';
+        const historyHtml = reservationHistory.map(entry => {
+            return `
+                <tr>
+                    <td>${entry.timestamp}</td>
+                    <td>Espacio ${entry.sensor}</td>
+                    <td>${entry.name}</td>
+                    <td>${entry.plate}</td>
+                    <td>${entry.status}</td>
+                </tr>
+            `;
+        }).join('');
+        historyContainer.innerHTML = historyHtml;
+    }
+}
+
+// Esta función reinicia todos los sensores a su estado disponible
+async function resetAllSensors() {
+    for (let i = 0; i < sensors.length; i++) {
+        try {
+            await fetch(`https://blynk.cloud/external/api/update?token=${authToken}&pin=${sensors[i]}&value=1`);
+            console.log(`Sensor ${i + 1} restablecido a disponible`);
+        } catch (error) {
+            console.error(`Error al restablecer el sensor ${i + 1}:`, error);
+        }
+    }
+
+    localStorage.removeItem("reservedSpaces");
+    reservedSpaces = {}; // Vaciar las reservas
+    getSensorData(); // Actualizar la interfaz
 }
 
 setInterval(getSensorData, 2000);
 
+window.onload = function() {
+    renderHistory(); // Mostrar historial de reservas
+};
+
+// Renderizar los espacios
 const renderSpaces = () => {
     const container = document.getElementById('spacesContainer');
     if (container) {
