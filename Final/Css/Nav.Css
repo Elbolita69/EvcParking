@@ -1,0 +1,91 @@
+    /* Personalización del fondo y colores principales */
+    .custom-bg {
+        background-color: #1E2A39; /* Fondo oscuro, para dar un tono moderno */
+    }
+    
+    .hero-section {
+        background: linear-gradient(135deg, #E8491D, #F8A71C); /* Un degradado moderno de colores cálidos */
+        padding: 120px 0; /* Asegura que el encabezado tenga una altura adecuada */
+        background-size: cover;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Mejora la legibilidad del texto sobre el fondo */
+    }
+    
+    /* Navbar personalizada con espaciado reducido */
+    .navbar {
+        background-color: #1E2A39 !important;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease; /* Añade transición suave al pasar el mouse */
+    }
+    
+    .navbar .navbar-brand img {
+        height: 40px;
+    }
+    
+    .navbar-nav .nav-item .nav-link {
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 15px; /* Mejora la interacción */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para los enlaces */
+    }
+    
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #F8A71C;
+        background-color: #2C3E50; /* Fondo oscuro sutil en el hover */
+    }
+
+    /* Responsividad para dispositivos móviles */
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 100px 0;
+        }
+        h2 {
+            font-size: 1.25rem;
+        }
+        .list-group-item {
+            font-size: 1rem;
+        }
+        .navbar .navbar-brand img {
+            height: 35px;
+        }
+        .navbar-nav .nav-link {
+            font-size: 0.9rem;
+            padding: 6px 10px;
+        }
+    }
+    
+
+    /* Barra de navegación */
+    .navbar {
+        background-color: #ff6600; /* Naranja */
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .nav-list li {
+        padding: 10px 20px;
+    }
+    
+    .nav-list li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .nav-list li a:hover {
+        background-color: #e65c00;
+        color: #ffffff;
+    }
+    
