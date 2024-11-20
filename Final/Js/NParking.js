@@ -1,4 +1,4 @@
-const authToken = "GpHkupCqIt3PC1-JX5ynFQi6BnfgqbAO";
+const authToken = "igJkzHvuKQ9nlkp6ncgfnZ0ntiUcYWFq";
 let sensors = ["V0", "V1", "V2", "V3"];
 let reservedSpaces = JSON.parse(localStorage.getItem("reservedSpaces")) || {};
 let availableSpaces = 0;
