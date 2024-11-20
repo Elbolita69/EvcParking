@@ -4,223 +4,165 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Estilos para el Hero Section */
+/* Personalización del Navbar */
+.navbar {
+    background-color: #E8491D; /* Naranja */
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important; /* Cambia el color del texto de los enlaces */
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #F8A71C !important; /* Cambia el color de los enlaces al pasar el ratón */
+}
+
+.navbar-toggler-icon {
+    background-color: white; /* Cambia el color del icono del menú en móviles */
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-color: #ffffff; /* Cambia el color del icono del menú hamburguesa */
+}
+
+/* Para el botón de login */
+#loginBtn {
+    color: white;
+    font-weight: bold;
+}
+
+#loginBtn:hover {
+    color: #F8A71C; /* Naranja claro al pasar el ratón */
+}
+
+/* Estilos adicionales si es necesario */
+.navbar .nav-item {
+    margin-left: 15px; /* Separación entre los elementos del navbar */
+}
+
+/* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, #E8491D, #F8A71C);
-    padding: 60px 0; /* Reducir el padding para hacer el Hero más pequeño */
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilo del encabezado y subtítulo */
 h1 {
     color: white;
-    font-size: 2.5rem; /* Reducir tamaño del texto */
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 15px; /* Menos espacio debajo del título */
+    margin-bottom: 10px;
 }
 
 h2 {
-    color: #F8A71C;
-    font-size: 1.3rem; /* Reducir tamaño del subtítulo */
+    color: white;
+    font-size: 1.2rem;
     font-weight: 600;
+    margin-top: 0;
 }
 
-/* Navbar (más delgado y pequeño) */
-/* Navbar personalizada con espaciado reducido */
-.navbar {
-    background-color: #F8A71C !important; /* Color naranja para el navbar */
-    padding: 0.5rem 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease; /* Añade transición suave al pasar el mouse */
-  }
-  
-  .navbar .navbar-brand img {
-    height: 40px;
-  }
-  
-  .navbar-nav .nav-item .nav-link {
-    color: #ffffff;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 15px; /* Mejora la interacción */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para los enlaces */
-  }
-  
-  .navbar-nav .nav-item .nav-link:hover {
-    color: #2C3E50;
-    background-color: #F8A71C; /* Fondo naranja en el hover */
-  }
-  
-
-/* Card Container */
+/* Cards de los espacios */
 .sensor-card {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
     background-color: #ffffff;
-    border: 2px solid #E8491D; /* Borde más estilizado */
+    border: 2px solid #E8491D;
     padding: 15px;
-}
-
-.sensor-card:hover {
-    transform: scale(1.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-header {
-    background-color: #F8A71C; /* Color naranja similar al tema */
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.available {
-    color: #28a745; /* Verde para Disponible */
-    font-weight: bold;
-}
-
-.occupied {
-    color: #dc3545; /* Rojo para Ocupado */
-    font-weight: bold;
-}
-
-.counter {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #F8A71C; /* Cambio del azul a naranja */
-}
-
-/* Mejorar presentación de los botones */
-.btn {
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 1rem;
-}
-
-.btn-primary {
     background-color: #F8A71C;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #E8491D;
-}
-
-/* Responsividad para dispositivos móviles */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 60px 0; /* Menor padding en pantallas pequeñas */
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    .sensor-card {
-        margin-bottom: 20px;
-    }
-}
-
-/* Ajuste de espacio entre las tarjetas */
-.container {
-    margin-bottom: 60px;  /* Aumenté el espacio para evitar que las tarjetas toquen el borde inferior */
-}
-
-.row-cols-1, .row-cols-md-2, .row-cols-lg-4 {
-    margin-bottom: 30px; /* Espacio extra entre las tarjetas */
-}
-
-/* Estilos generales */
-body {
-    background-color: #f8f9fa;
-}
-
-.sensor-card {
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-}
-
-.sensor-card:hover {
-    transform: scale(1.05);
-}
-
-.card-header {
-    background-color: #F8A71C; /* Color naranja similar al tema */
     color: white;
-}
-
-.available {
-    color: #28a745; /* Verde para Disponible */
     font-weight: bold;
-}
-
-.occupied {
-    color: #dc3545; /* Rojo para Ocupado */
-    font-weight: bold;
-}
-
-.counter {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #F8A71C; /* Cambio del azul a naranja */
-}
-
-/* Estilo para el texto adicional */
-.text-white {
-    color: #ffffff !important;
-}
-
-/* Cambios de color para la tabla */
-.card {
-    background-color: #ffffff;
-    border: 1px solid #E8491D; /* Borde acorde al tema */
-}
-
-.card-body {
-    background-color: #f8f9fa;
-}
-
-.card-header {
-    background-color: #E8491D; /* Naranja de la compañía */
-}
-
-/* Personalización adicional */
-body {
-    background-color: #f8f9fa;
-}
-
-.text-center {
     text-align: center;
 }
 
-/* Para mejorar la visualización del contenedor */
-.container {
-    margin-top: 40px;
+/* Estado de los espacios */
+.available {
+    color: #28a745;
+    font-weight: bold;
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #fff;
+.occupied {
+    color: #dc3545;
+    font-weight: bold;
 }
 
-.text-white {
-    color: white !important;
+.reserved {
+    color: yellow;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 #000000,  
+        -1px -1px 0 #000000,
+        1px -1px 0 #000000,
+        -1px 1px 0 #000000;  /* Borde naranja alrededor de cada letra */
+    padding: 5px;
+    display: inline-block; /* Asegura que el borde se aplique solo alrededor del texto */
 }
 
-/* Adaptación en pantallas pequeñas */
-@media (max-width: 768px) {
-    .counter {
-        font-size: 1.5rem;
-    }
 
-    .card-header {
-        font-size: 1rem;
-    }
+
+/* Contador de espacios disponibles */
+.counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F8A71C;
+}
+
+/* Botones */
+button, .btn {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+button:hover, .btn:hover {
+    background-color: #e65c00;  /* Naranja oscuro al pasar el ratón */
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-primary, .reserve-btn {
+    background-color: #ff6600;  /* Naranja */
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover, .reserve-btn:hover {
+    background-color: #e65c00;  /* Naranja oscuro al pasar el ratón */
+}
+
+/* Cuadrícula de espacios */
+.row {
+    margin-top: 20px;
+}
+
+/* Modal de reserva */
+.modal-header {
+    background-color: #E8491D;
+    color: white;
 }
