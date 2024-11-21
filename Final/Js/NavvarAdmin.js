@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const adminNavItem = document.createElement("li");
             adminNavItem.classList.add("nav-item");
             adminNavItem.innerHTML = `
-                <a class="nav-link" href="./Camaras.html">Cámaras</a>
+                <a class="nav-link" href="http://127.0.0.1:5000/">Cámaras</a>
             `;
 
             
