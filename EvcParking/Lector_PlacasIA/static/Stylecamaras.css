@@ -1,216 +1,139 @@
-/* Estilos generales */
+/* Personalización de fondo y colores principales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f8f9fa;
-}
-
-/* Barra de navegación */
-.navbar {
-    background-color: #ff6600; /* Naranja */
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.nav-list {
-    list-style-type: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+/* Personalización del Navbar */
+.navbar {
+    background-color: #E8491D; /* Naranja */
+    padding: 0 20px; /* Añadir padding para que no se vean pegados los elementos */
+    margin: 0; /* Eliminar margen para que se una al hero */
     display: flex;
-    justify-content: center;
-}
-
-.nav-list li {
-    padding: 10px 20px;
-}
-
-.nav-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.nav-list li a:hover {
-    background-color: #e65c00;
-    color: #ffffff;
-}
-
-/* Barra de navegación del offcanvas */
-.offcanvas-header {
-    background-color: #ff6600; /* Naranja */
-    color: white;
-}
-
-.offcanvas-body {
-    background-color: #fff;
-    padding: 20px;
-}
-
-.offcanvas-title {
-    font-weight: bold;
-}
-
-/* Header de la página */
-.hero {
-    background-color: #ff6600;
-    color: white;
-    padding: 60px 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: bold;
-}
-
-.hero p {
-    font-size: 20px;
-}
-
-/* Sección de contenido */
-.content {
-    margin: 40px auto;
-    max-width: 1200px;
-    padding: 20px;
-}
-
-.info, .features {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.features ul {
-    padding-left: 20px;
-}
-
-.features li {
-    margin: 10px 0;
-}
-
-/* Estilo para el footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Botones y formularios */
-.btn {
-    border-radius: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.hidden-btn {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-}
-
-.hidden-btn:hover {
-    background-color: #e65c00;
-    color: white;
-    cursor: pointer;
-}
-
-/* Estilos del botón de búsqueda */
-.search-container {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    height: 80px; /* Aumentar altura del navbar */
 }
 
-#s {
-    padding: 10px;
-    border-radius: 25px;
-    border: 2px solid #ccc;
-    font-size: 16px;
-    width: 250px;
-    transition: border 0.3s ease;
+.navbar .navbar-brand img {
+    height: 50px; /* Hacer el logo un poco más grande */
 }
 
-#s:focus {
-    border: 2px solid #ff6600;
-    outline: none;
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-.search {
-    margin-left: 10px;
-    background-color: #ff6600;
+.navbar-nav li {
+    margin-right: 25px; /* Aumentar el espacio entre los elementos */
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.1rem; /* Aumentar el tamaño de la fuente */
+    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #F8A71C !important;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C);
+    width: 100%;
+    height: 350px; /* Aumentar altura del hero */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0; /* Eliminar padding adicional para que se pegue al navbar */
+    margin: 0; /* Eliminar cualquier margen extra */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 3.5rem; /* Hacer el título más grande */
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.search:hover {
-    background-color: #e65c00;
+h2 {
+    color: white;
+    font-size: 1.8rem; /* Hacer la subcabecera más grande */
+    font-weight: 600;
+    margin-top: 0;
+}
+
+/* Contenedor principal */
+.container {
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+    padding: 20px;
 }
 
 /* Contenedor del video */
 .video-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.video-container h2 {
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .video-frame {
     width: 80%;
-    max-width: 800px;
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    max-width: 600px;
+    border: 5px solid #E8491D;
+    border-radius: 10px;
+}
+
+/* Botón para capturar */
+.action-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Añadir más espacio entre el video y el botón */
 }
 
 .action-btn {
-    background-color: #ff6600;
-    color: white;
+    background-color: #F8A71C;
     border: none;
-    padding: 12px 30px;
-    font-size: 16px;
+    color: white;
+    padding: 20px 40px; /* Aumentar el tamaño del botón */
+    font-size: 1.5rem; /* Aumentar el tamaño de la fuente */
+    border-radius: 50px;
     cursor: pointer;
-    border-radius: 25px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añadir sombra al botón */
 }
 
 .action-btn:hover {
-    background-color: #e65c00;
-    transform: scale(1.05);
+    background-color: #E8491D;
+    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
 }
 
-.action-btn:active {
-    background-color: #b84e00;
-}
-
-/* Estilo del footer */
+/* Pie de página */
 footer {
-    background-color: #333;
+    background-color: #E8491D;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0; /* Aumentar el espacio del pie */
     position: fixed;
-    bottom: 0;
     width: 100%;
-    font-size: 14px;
+    bottom: 0;
+    margin-top: auto; /* Esto asegura que el pie de página se mantenga al final */
 }
