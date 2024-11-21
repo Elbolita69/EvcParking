@@ -9,6 +9,14 @@
     background-size: cover;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Mejora la legibilidad del texto sobre el fondo */
 }
+/* Ocultar completamente el botón de Excel y su espacio */
+button.dt-button.buttons-excel {
+    display: none !important;
+}
+.dt-button.buttons-pdf {
+    display: none !important; /* Esto oculta el botón de PDF visualmente */
+}
+
 
 /* Navbar personalizada con espaciado reducido */
 .navbar {

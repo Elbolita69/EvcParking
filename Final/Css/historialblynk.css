@@ -136,3 +136,35 @@ footer {
     width: 100%;
     bottom: 0;
 }
+/* Personalización de la Modal para que se vea bonita */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-header {
+    background-color: #E8491D;
+    color: white;
+    font-weight: bold;
+}
+
+.modal-body {
+    background-color: #fffefc;
+    color: #333;
+}
+
+.modal-footer {
+    background-color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: #E8491D;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background-color: #F8A71C;
+    color: #333;
+}
