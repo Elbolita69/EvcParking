@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lectura Automática de Placas</title>
-    <!-- Referencia al archivo CSS en la carpeta static -->
+    <!-- Referencia al archivo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='Stylecamaras.css') }}">
 </head>
+
 <body>
     <!-- Barra de navegación -->
-    <div class="navbar">
-        <ul class="nav-list">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Contacto</a></li>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <img src="{{ url_for('static', filename='Img/evcblanco.png') }}" alt="Logo">
+        </a>
+        <ul class="navbar-nav">
+            <li><a href="index.html" class="nav-link">Inicio</a></li>
+            <li><a href="#" class="nav-link">Servicios</a></li>
+            <li><a href="#" class="nav-link">Contacto</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <!-- Contenedor de video -->
-    <div class="video-container">
-        <h2>Placas EVC PARKING</h2>
-        <img id="video" class="video-frame" src="{{ url_for('video_feed') }}" alt="Video en vivo">
-        <br><br>
-        <button class="action-btn" onclick="captureImage()">Capturar y Leer Placa</button>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Lectura Automática de Placas</h1>
+        <h2>Captura y lee placas de vehículos en tiempo real</h2>
+    </section>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <div class="video-container">
+            <img id="video" class="video-frame" src="{{ url_for('video_feed') }}" alt="Video en vivo">
+        </div>
+
+        <div class="action-container">
+            <button class="action-btn" onclick="captureImage()">Capturar y Leer Placa</button>
+        </div>
     </div>
 
     <!-- Pie de página -->
@@ -45,4 +59,5 @@
         }
     </script>
 </body>
+
 </html>
