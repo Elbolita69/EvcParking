@@ -1,0 +1,138 @@
+/* Personalización de fondo y colores principales */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #E8491D; /* Naranja */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 600;
+    margin: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #F8A71C !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #E8491D, #F8A71C);
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Tabla de historial */
+#reservationHistoryTable {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#reservationHistoryTable thead {
+    background-color: #E8491D;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#reservationHistoryTable th,
+#reservationHistoryTable td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#reservationHistoryTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#reservationHistoryTable tr:hover {
+    background-color: #f8a71c;
+    color: white;
+}
+
+/* Paginación y búsqueda */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #E8491D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #F8A71C;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #E8491D;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+/* Estilo para los botones de exportación (DataTables) */
+.dt-button {
+    background-color: #28a745;  /* Verde */
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin: 5px;
+}
+
+.dt-button:hover {
+    background-color: #218838;
+}
+
+/* Footer */
+footer {
+    background-color: #E8491D;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
