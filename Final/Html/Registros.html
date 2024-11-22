@@ -42,8 +42,6 @@
         <h1>Descarga tus registros aquí</h1>
     </header>
 
-  
-
     <!-- Tabla de registros -->
     <div class="container my-5">
         <table id="registrosTable" class="table table-striped table-bordered">
@@ -67,11 +65,29 @@
         </div>
     </div>
 
+    <!-- Modal para mostrar la notificación de "Sesión cerrada" -->
+    <div class="modal fade" id="sesionCerradaModal" tabindex="-1" aria-labelledby="sesionCerradaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sesionCerradaModalLabel">Sesión Cerrada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>La sesión se cerró correctamente. Redirigiendo...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer text-center py-3 custom-bg">
         <p>&copy; 2024 EVC Parking. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scripts necesarios -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="../Js/Registro.js"></script> <!-- Tu archivo JS personalizado -->
