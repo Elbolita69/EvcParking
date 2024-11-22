@@ -17,12 +17,18 @@ function verificarEstadoSesion() {
 
 function cerrarSesion() {
     localStorage.removeItem("loggedInUser");
-    alert("Sesión cerrada correctamente.");
-    window.location.href = "Login.html"; 
+
+    // Mostrar la modal de sesión cerrada
+    const modal = new bootstrap.Modal(document.getElementById('sesionCerradaModal'));
+    modal.show();
+
+    // Redirigir después de un pequeño retraso (por ejemplo, 2 segundos)
+    setTimeout(function() {
+        window.location.href = "Login.html"; 
+    }, 2000);  // 2 segundos de espera
 }
 
 document.addEventListener("DOMContentLoaded", verificarEstadoSesion);
-
 
 window.onload = function() {
     const usuarioLogueado = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -30,14 +36,3 @@ window.onload = function() {
         document.getElementById('nombreUsuario').textContent = `Hola, ${usuarioLogueado.nombre}!`;
     }
 }
-
-//SOLO PARA EL BOT
-const usuarioLogueado = JSON.parse(localStorage.getItem('loggedInUser'));
-const botMessage = document.getElementById('botMessage');
-
-if (usuarioLogueado) {
-    botMessage.innerHTML = `<strong>Bot:</strong> ¡Hola, ${usuarioLogueado.nombre}! ¿Cómo estás?`;
-} else {
-    botMessage.innerHTML = `<strong>Bot:</strong> Este bot es solo para los usuarios de la página. Debes iniciar sesión antes de usar nuestro EVC bot.`;
-}
- 

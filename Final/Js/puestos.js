@@ -4,7 +4,7 @@ function verificarAccesoAdmin() {
 
     if (!usuarioLogueado || usuarioLogueado.role !== "admin") {
         alert("Acceso denegado. Solo administradores pueden acceder.");
-        window.location.href = "index.html";
+        window.location.href = "inicio.html";
     }
 }
 
@@ -182,7 +182,7 @@ function loadUsers() {
     const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (!loggedUser || loggedUser.role !== "admin") {
         alert("Acceso denegado. Solo administradores pueden acceder.");
-        window.location.href = "index.html"; 
+        window.location.href = "inicio.html"; 
         return;
     }
 

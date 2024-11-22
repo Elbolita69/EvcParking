@@ -1,13 +1,4 @@
-function verificarAccesoAdmin() {
-    
-    const usuarioLogueado = JSON.parse(localStorage.getItem("loggedInUser"));
-    
-    if (!usuarioLogueado || usuarioLogueado.role !== "admin") {
-        alert("Acceso denegado. Solo administradores pueden acceder.");
-        window.location.href = "index.html";
-    }
-    
-}
+
 
 function cargarUsuarios() {
     
@@ -171,5 +162,5 @@ function eliminarUsuario(index) {
     
 }
 
- verificarAccesoAdmin();
+ 
  cargarUsuarios();

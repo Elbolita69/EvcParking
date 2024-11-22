@@ -444,3 +444,84 @@ footer {
     width: 100%;
     font-size: 14px;
 }
+/* Estilos para la modal */
+.modal-content {
+    background-color: #FFFFFF; /* Fondo blanco dentro de la modal */
+    color: #1E2A39; /* Texto en color oscuro para facilitar la lectura */
+    border-radius: 10px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+}
+
+/* Títulos de las modales */
+.modal-title {
+    color: #FFFFFF; /* Títulos en blanco */
+    font-weight: 700;
+}
+
+/* Fondo de las modales */
+.modal-backdrop.show {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido pero no tan fuerte */
+}
+
+/* Estilo para los botones dentro de las modales */
+.modal-footer .btn {
+    background-color: #F8A71C; /* Botón de color cálido */
+    color: #1E2A39; /* Texto oscuro en el botón */
+    border: none;
+    border-radius: 50px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover en los botones */
+.modal-footer .btn:hover {
+    background-color: #E8491D; /* Cambio a un tono más oscuro */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Cabeceras uniformes */
+.modal-header {
+    background-color: #E8491D; /* Fondo del encabezado color cálido */
+    color: #FFFFFF; /* Texto blanco */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Modal de "Correo Ya Registrado" y otras modales */
+#correoYaRegistradoModal .modal-header,
+#registroExitosoModal .modal-header,
+#inicioSesionExitosoModal .modal-header,
+#correoContraseñaIncorrectosModal .modal-header,
+#sesionCerradaModal .modal-header {
+    background-color: #E8491D; /* Fondo del encabezado color cálido */
+}
+
+/* Mejorar el aspecto del texto dentro de las modales */
+.modal-body p {
+    font-size: 1.1rem;
+    color: #1E2A39; /* Texto oscuro para mejorar la legibilidad */
+    line-height: 1.5;
+}
+
+/* Mejorar el aspecto del fondo y transiciones */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out; /* Suaviza la entrada de la modal */
+}
+
+.modal.fade.show .modal-dialog {
+    transform: translateY(0); /* Entrada suave desde abajo */
+}
+
+/* Fondo de la página detrás de las modales */
+body.modal-open {
+    overflow: hidden; /* Evita el scroll cuando las modales están abiertas */
+}
+
+/* Ajustes adicionales para la modal de "Correo o Contraseña Incorrectos" */
+#correoContraseñaIncorrectosModal .modal-body p {
+    color: #1E2A39; /* Texto en color oscuro */
+}
+
+/* Modal "Correo o Contraseña Incorrectos" - Títulos en blanco */
+#correoContraseñaIncorrectosModal .modal-title {
+    color: #FFFFFF; /* Título en blanco */
+}
