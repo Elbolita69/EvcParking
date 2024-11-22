@@ -7,30 +7,10 @@ function verificarAccesoAdmin() {
 }
 
 function mostrarModalAccesoDenegado() {
-    const modalHTML = `
-        <div class="modal fade" id="accesoDenegadoModal" tabindex="-1" aria-labelledby="accesoDenegadoModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="accesoDenegadoModalLabel">Acceso Denegado</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Solo los administradores tienen acceso a esta página. Redirigiendo...</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="cerrarModalBtn">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    // Insertamos la modal en el cuerpo del documento
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-    // Mostramos la modal usando Bootstrap
+    // Obtén la modal ya presente en el HTML
     const modal = new bootstrap.Modal(document.getElementById('accesoDenegadoModal'));
+    
+    // Muestra la modal usando Bootstrap
     modal.show();
 
     // Redirigir después de 2 segundos
@@ -40,6 +20,7 @@ function mostrarModalAccesoDenegado() {
 
     // Eliminamos la modal después de cerrarla
     document.getElementById('cerrarModalBtn').addEventListener('click', function() {
+        // No es necesario eliminarla porque ya está en el HTML
         document.getElementById('accesoDenegadoModal').remove();
     });
 }

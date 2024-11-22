@@ -433,17 +433,7 @@ footer p {
     background-color: #b84e00;
 }
 
-/* Estilo del footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-}
+
 /* Estilos para la modal */
 .modal-content {
     background-color: #FFFFFF; /* Fondo blanco dentro de la modal */
@@ -524,4 +514,15 @@ body.modal-open {
 /* Modal "Correo o Contraseña Incorrectos" - Títulos en blanco */
 #correoContraseñaIncorrectosModal .modal-title {
     color: #FFFFFF; /* Título en blanco */
+}
+/* Estilo del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
 }
