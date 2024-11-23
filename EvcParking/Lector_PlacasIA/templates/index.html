@@ -7,43 +7,68 @@
     <title>Lectura Automática de Placas</title>
     <!-- Referencia al archivo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='Stylecamaras.css') }}">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
     <!-- Barra de navegación -->
-    <nav class="navbar">
-        <a href="#" class="navbar-brand">
-            <img src="{{ url_for('static', filename='Img/evcblanco.png') }}" alt="Logo">
-        </a>
-        <ul class="navbar-nav">
-            <li><a href="index.html" class="nav-link">Inicio</a></li>
-            <li><a href="#" class="nav-link">Servicios</a></li>
-            <li><a href="#" class="nav-link">Contacto</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ff6600; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <!-- Logo -->
+            <a href="#" class="navbar-brand">
+                <img src="{{ url_for('static', filename='Img/evcblanco.png') }}" alt="Logo" style="height: 40px;">
+            </a>
+
+            <!-- Botón para móvil -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Enlaces del navbar alineados a la derecha -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"> <!-- Alinea los elementos a la derecha con ml-auto -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="http://127.0.0.1:5000/placas">Registros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="http://127.0.0.1:5000/graficos">Estadísticas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <h1>Lectura Automática de Placas</h1>
-        <h2>Captura y lee placas de vehículos en tiempo real</h2>
+    <section class="hero-section text-center text-white py-5 custom-bg">
+        <div class="container">
+            <h1>Lectura Automática de Placas</h1>
+            <h2>Captura y lee placas de vehículos en tiempo real</h2>
+        </div>
     </section>
 
     <!-- Contenedor principal -->
-    <div class="container">
-        <div class="video-container">
-            <img id="video" class="video-frame" src="{{ url_for('video_feed') }}" alt="Video en vivo">
+    <div class="container my-5">
+        <div class="video-container text-center">
+            <img id="video" class="video-frame" src="{{ url_for('video_feed') }}" alt="Video en vivo" style="width: 100%; max-width: 600px;">
         </div>
 
-        <div class="action-container">
-            <button class="action-btn" onclick="captureImage()">Capturar y Leer Placa</button>
+        <div class="action-container text-center mt-4">
+            <button class="btn btn-primary" onclick="captureImage()">Capturar y Leer Placa</button>
         </div>
     </div>
 
     <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 EVC Parking. Todos los derechos reservados.</p>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2024 EVC Parking. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
         function captureImage() {
             fetch('/leer_placa', { method: 'POST' })
