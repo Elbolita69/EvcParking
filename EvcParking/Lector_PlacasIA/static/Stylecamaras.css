@@ -4,9 +4,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex; /* Utiliza flexbox para el layout */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la pantalla */
 }
 
-/* Personalización del Navbar */
+/* Barra de navegación */
 .navbar {
     background-color: #E8491D; /* Naranja */
     padding: 0 20px; /* Añadir padding para que no se vean pegados los elementos */
@@ -53,7 +56,7 @@ body {
 .hero-section {
     background: linear-gradient(135deg, #E8491D, #F8A71C);
     width: 100%;
-    height: 350px; /* Aumentar altura del hero */
+    height: 250px; /* Reducir altura del hero */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,14 +69,14 @@ body {
 
 h1 {
     color: white;
-    font-size: 3.5rem; /* Hacer el título más grande */
+    font-size: 2.5rem; /* Reducir tamaño del título */
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Reducir espacio debajo del título */
 }
 
 h2 {
     color: white;
-    font-size: 1.8rem; /* Hacer la subcabecera más grande */
+    font-size: 1.4rem; /* Reducir tamaño de la subcabecera */
     font-weight: 600;
     margin-top: 0;
 }
@@ -84,6 +87,7 @@ h2 {
     max-width: 1000px;
     text-align: center;
     padding: 20px;
+    flex-grow: 1; /* Asegura que el contenido ocupe el espacio restante */
 }
 
 /* Contenedor del video */
@@ -109,22 +113,22 @@ h2 {
 }
 
 .action-btn {
-    background-color: #F8A71C;
+    background-color: #000000; /* Negro */
     border: none;
     color: white;
-    padding: 20px 40px; /* Aumentar el tamaño del botón */
-    font-size: 1.5rem; /* Aumentar el tamaño de la fuente */
+    padding: 20px 40px;
+    font-size: 1.5rem;
     border-radius: 50px;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añadir sombra al botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .action-btn:hover {
-    background-color: #E8491D;
-    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+    background-color: #444444; /* Gris oscuro */
 }
+
 
 /* Pie de página */
 footer {
@@ -132,7 +136,7 @@ footer {
     color: white;
     text-align: center;
     padding: 15px 0; /* Aumentar el espacio del pie */
-    position: fixed;
+    position: relative; /* Asegura que el pie de página se mantenga en la parte inferior */
     width: 100%;
     bottom: 0;
     margin-top: auto; /* Esto asegura que el pie de página se mantenga al final */
