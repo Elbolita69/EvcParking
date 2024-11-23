@@ -63,6 +63,7 @@ def guardar_datos_placa(data):
 def index():
     return render_template('index.html')
 
+# Ruta para mostrar los registros de placas
 @app.route('/placas')
 def mostrar_placas():
     db = conectar_bd()
@@ -72,6 +73,67 @@ def mostrar_placas():
     cursor.close()
     db.close()
     return render_template('placas.html', placas=placas)
+
+# Ruta para los datos en formato JSON para gráficos
+@app.route('/datos_graficos')
+def datos_graficos():
+    db = conectar_bd()
+    cursor = db.cursor()
+    cursor.execute("SELECT fecha, COUNT(*) FROM placas_detectadas GROUP BY fecha")
+    datos = cursor.fetchall()
+    cursor.close()
+    db.close()
+
+    # Prepara los datos en formato JSON para el gráfico
+    return jsonify({
+        "fechas": [fila[0] for fila in datos],
+        "conteos": [fila[1] for fila in datos]
+    })
+
+# Ruta para la página de gráficos
+@app.route('/graficos')
+def mostrar_graficos():
+    db = conectar_bd()
+    cursor = db.cursor()
+
+    # Datos para Cantidad de Placas Detectadas por Día
+    cursor.execute("SELECT fecha, COUNT(*) FROM placas_detectadas GROUP BY fecha")
+    datos_grafico1 = cursor.fetchall()
+
+    # Datos para Porcentaje de Placas Detectadas por Rango de Confianza
+    cursor.execute("""
+        SELECT 
+            CASE 
+                WHEN confianza >= 90 THEN '90-100%' 
+                WHEN confianza >= 80 THEN '80-89%' 
+                WHEN confianza >= 70 THEN '70-79%' 
+                ELSE '<70%'
+            END as rango_confianza,
+            COUNT(*) 
+        FROM placas_detectadas 
+        GROUP BY rango_confianza
+    """)
+    datos_grafico2 = cursor.fetchall()
+
+    # Datos para Distribución de Placas Detectadas por Hora del Día
+    cursor.execute("SELECT HOUR(hora) as hora_del_dia, COUNT(*) FROM placas_detectadas GROUP BY HOUR(hora)")
+    datos_grafico3 = cursor.fetchall()
+
+    # Datos para Placas Más Frecuentes Detectadas
+    cursor.execute("SELECT placa, COUNT(*) as frecuencia FROM placas_detectadas GROUP BY placa ORDER BY frecuencia DESC LIMIT 10")
+    datos_grafico4 = cursor.fetchall()
+
+    cursor.close()
+    db.close()
+
+    return render_template(
+        'graficasplacas.html',
+        datos_grafico1=datos_grafico1,
+        datos_grafico2=datos_grafico2,
+        datos_grafico3=datos_grafico3,
+        datos_grafico4=datos_grafico4
+    )
+
 
 
 # Ruta para capturar una imagen y leer la placa cuando se presiona el botón
