@@ -1,10 +1,11 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import json
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 # Configuración del servidor SMTP
 SMTP_SERVER = "smtp.gmail.com"
@@ -12,8 +13,8 @@ SMTP_PORT = 587
 EMAIL = "evcparkingproyecto@gmail.com"  # Cambia esto a tu correo de Gmail
 EMAIL_PASSWORD = "jspz mdbw vlbb zkki"  # Usa la contraseña de aplicación generada
 
-# Archivo para almacenar los usuarios
-USERS_FILE = "usuarios.json"
+# Ruta para almacenar el archivo de usuarios
+USERS_FILE = r"C:\Users\estudiante\Downloads\EvcParking-main\EvcParking\usuarios.json"  # Asegúrate de que esta ruta sea correcta
 
 # Crear la aplicación FastAPI
 app = FastAPI()
@@ -29,28 +30,56 @@ class LoginData(BaseModel):
     email: str
     password: str
 
-# Modelo para reservas
-class Reserva(BaseModel):
-    nombre: str
-    correo: str
-    puesto: str
-
-# Función para cargar usuarios desde el archivo
+# Función para cargar los usuarios desde el archivo JSON
 def cargar_usuarios():
     if os.path.exists(USERS_FILE):
-        with open(USERS_FILE, "r") as file:
+        with open(USERS_FILE, 'r') as file:
             return json.load(file)
     return []
 
-# Función para guardar usuarios en el archivo
+# Función para guardar usuarios en el archivo JSON
 def guardar_usuarios(usuarios):
-    with open(USERS_FILE, "w") as file:
-        json.dump(usuarios, file)
+    try:
+        with open(USERS_FILE, 'w') as file:
+            json.dump(usuarios, file, indent=4)
+        print("Usuarios guardados correctamente")
+    except Exception as e:
+        print(f"Error al guardar usuarios: {e}")
+
+# Función para enviar correos
+def enviar_correo(destinatario, asunto, cuerpo):
+    mensaje = MIMEMultipart()
+    mensaje["From"] = EMAIL
+    mensaje["To"] = destinatario
+    mensaje["Subject"] = asunto
+    mensaje.attach(MIMEText(cuerpo, "html"))
+
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.starttls()
+        server.login(EMAIL, EMAIL_PASSWORD)
+        server.sendmail(EMAIL, destinatario, mensaje.as_string())
+
+# Configuración de CORS para permitir solicitudes desde diferentes orígenes
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "http://127.0.0.1",
+    "http://127.0.0.1:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Permitir solicitudes de estos orígenes
+    allow_credentials=True,
+    allow_methods=["*"],  # Permitir cualquier método HTTP
+    allow_headers=["*"],  # Permitir cualquier encabezado
+)
 
 # Ruta para registrar usuarios
 @app.post("/registro")
 async def registro(usuario: Usuario):
     usuarios = cargar_usuarios()
+    
     # Verificar si el correo ya está registrado
     if any(u["email"] == usuario.email for u in usuarios):
         raise HTTPException(status_code=400, detail="Este correo ya está registrado.")
@@ -59,6 +88,8 @@ async def registro(usuario: Usuario):
     nuevo_usuario = usuario.dict()
     nuevo_usuario["role"] = "regular"  # Asignar rol por defecto
     usuarios.append(nuevo_usuario)
+
+    # Guardar los usuarios después de agregar el nuevo
     guardar_usuarios(usuarios)
 
     # Enviar correo de bienvenida
@@ -77,45 +108,3 @@ async def registro(usuario: Usuario):
         raise HTTPException(status_code=500, detail=f"Usuario registrado, pero fallo al enviar correo: {str(e)}")
 
     return {"mensaje": "Usuario registrado exitosamente."}
-
-# Ruta para iniciar sesión
-@app.post("/login")
-async def login(data: LoginData):
-    usuarios = cargar_usuarios()
-    # Buscar el usuario por correo y contraseña
-    usuario = next((u for u in usuarios if u["email"] == data.email and u["password"] == data.password), None)
-    if not usuario:
-        raise HTTPException(status_code=401, detail="Correo o contraseña incorrectos.")
-    return {"mensaje": "Inicio de sesión exitoso.", "usuario": usuario}
-
-# Ruta para enviar correo de reserva
-@app.post("/reservar")
-async def enviar_reserva(reserva: Reserva):
-    try:
-        # Crear el mensaje de correo
-        enviar_correo(
-            destinatario=reserva.correo,
-            asunto="Confirmación de Reserva - EVC Parking",
-            cuerpo=f"""
-            <h1>Hola, {reserva.nombre}</h1>
-            <p>Tu reserva en <b>EVC Parking</b> ha sido confirmada.</p>
-            <p><b>Puesto Asignado:</b> {reserva.puesto}</p>
-            <p>¡Gracias por elegirnos!</p>
-            """
-        )
-        return {"mensaje": "Correo enviado exitosamente"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al enviar el correo: {str(e)}")
-
-# Función para enviar correos
-def enviar_correo(destinatario, asunto, cuerpo):
-    mensaje = MIMEMultipart()
-    mensaje["From"] = EMAIL
-    mensaje["To"] = destinatario
-    mensaje["Subject"] = asunto
-    mensaje.attach(MIMEText(cuerpo, "html"))
-
-    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-        server.starttls()  # Iniciar comunicación cifrada
-        server.login(EMAIL, EMAIL_PASSWORD)  # Iniciar sesión
-        server.sendmail(EMAIL, destinatario, mensaje.as_string())  # Enviar correo

@@ -1,1 +1,30 @@
-[{"nombre": "bolita", "email": "estebangomezjimenez2008@gmail.com", "usuario": "bolita", "password": "yoquese", "role": "regular"}, {"nombre": "1", "email": "estebangomezj2008@gmail.com", "usuario": "1", "password": "1", "role": "regular"}]
+[
+    {
+        "nombre": "bolita",
+        "email": "estebangomezjimenez2008@gmail.com",
+        "usuario": "bolita",
+        "password": "yoquese",
+        "role": "regular"
+    },
+    {
+        "nombre": "holateamo",
+        "email": "victoramaranto0912@gmail.com",
+        "usuario": "12",
+        "password": "nono",
+        "role": "regular"
+    },
+    {
+        "nombre": "estebangomezjimenez2008@gmail.com",
+        "email": "estebangomezjimenez2008@gmail.com",
+        "usuario": "1estebangomezjimenez2008@gmail.com",
+        "password": "estebangomezjimenez2008@gmail.com",
+        "role": "regular"
+    },
+    {
+        "nombre": "Esteban Gomez",
+        "email": "esteban.gomez@example.com",
+        "usuario": "esteban123",
+        "password": "mypassword",
+        "role": "regular"
+    }
+]
